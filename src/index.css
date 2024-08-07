@@ -8,7 +8,6 @@
 
 * {
   margin: 0;
-  font-family: 'Nanum';
 }
 
 a {
@@ -18,7 +17,14 @@ a {
 
 @font-face {
   font-family: "Nanum"; 
-  src: url("./assets/font/NanumSquareNeo-Variable.ttf") format("opentype");  
+  src: url("./assets/font/NanumSquareNeo-Variable.ttf") format("truetype");  
+  font-weight: 100 900;  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Borda"; 
+  src: url("./assets/font/Borda.ttf") format("truetype");  
   font-weight: 100 900;  
   font-style: normal;
 }
