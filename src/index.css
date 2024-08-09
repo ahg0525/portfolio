@@ -24,7 +24,54 @@ a {
 
 @font-face {
   font-family: "Borda"; 
-  src: url("./assets/font/Borda.ttf") format("truetype");  
-  font-weight: 100 900;  
+  src: url("./assets/font/Borda.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BordaBold"; 
+  src: url("./assets/font/BordaBold.ttf") format("truetype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Corrupted"; 
+  src: url("./assets/font/CorruptedFile.ttf") format("truetype");  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Glitch"; 
+  src: url("./assets/font/DoctorGlitch.otf") format("opentype");  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "FingerPrinted"; 
+  src: url("./assets/font/FingerPrinted.ttf") format("truetype");  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "smile"; 
+  src: url("./assets/font/SMILE.ttf") format("truetype");  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "comeWithUs"; 
+  src: url("./assets/font/comeWithUs.ttf") format("truetype");  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "doubleFeature"; 
+  src: url("./assets/font/DoubleFeature20.ttf") format("truetype");  
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "lethalSlime"; 
+  src: url("./assets/font/LethalSlime.ttf") format("truetype");  
   font-style: normal;
 }

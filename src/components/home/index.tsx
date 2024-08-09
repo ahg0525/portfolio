@@ -1,5 +1,6 @@
 import React, { ReactNode, useCallback, useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { color } from '../../common/colors';
 
 interface ButtonGreenProps {
   children: ReactNode;
@@ -7,17 +8,18 @@ interface ButtonGreenProps {
 }
 
 const HomeComponent = () => {
-  const tickerList = ['React', 'TypeScript', 'Next', 'ECS', 'Docker', 'Vite', 'Vercel']
+  const tickerList = ['REACT', 'TS', 'NEXT', 'ECS', 'DOCKER', 'VITE', 'VERCEL']
+  const fontList = ['comeWithUs','lethalSlime','doubleFeature','Corrupted','comeWithUs','Glitch','doubleFeature']
   const [currentIndex, setCurrentIndex] = useState(0)
-
+  const [isHovered, setIsHovered] = useState(false);
+  
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % tickerList.length)
     }, 150)
-
     return () => clearInterval(timer)
   }, [tickerList.length])
-
+  
   const MainButton = useCallback(({ children, onClick }: ButtonGreenProps) => {
     const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
       const rect = e.currentTarget.getBoundingClientRect();
@@ -25,11 +27,21 @@ const HomeComponent = () => {
       const y = e.clientY - rect.top;
       e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
       e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+      setIsHovered(true);
     };
-    
+
+    const handleMouseLeave = () => {
+      setIsHovered(false);
+    };
+
     return (
-      <StyledButton onClick={onClick} onMouseEnter={handleMouseEnter}>
-        {children}
+      <StyledButton 
+        onClick={onClick} 
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        isHovered={isHovered}
+      >
+        <span>{children}</span>
       </StyledButton>
     );
   }, []);
@@ -37,10 +49,10 @@ const HomeComponent = () => {
   return (
     <Container>
       <TitleBox>
-        <span>Hi, I'm Kanyewest I Create with</span>
-        <TextTicker>{tickerList[currentIndex]}</TextTicker>
+        <span>I Create with</span>
+        <TextTicker font={fontList[currentIndex]}>{tickerList[currentIndex]}</TextTicker>
       </TitleBox>
-      {/* <Desc>"Hi, I'm the greatest Kanyewest"</Desc> */}
+      <Desc>"Hi, I'm the greatest KANYE"</Desc>
       <MainButton onClick={()=>('')}>
         <span>SEE MORE</span>
       </MainButton>
@@ -53,12 +65,12 @@ export default HomeComponent
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgb(15, 15, 15);
+  background-color: ${color.black};
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: white;
+  color: ${color.grey};
   flex-direction: column;
   gap: 1vw;
   font-family: 'Borda';
@@ -70,10 +82,12 @@ const TitleBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  span {
+    font-family: 'BordaBold';
+  }
 `
 
-const TextTicker = styled.div`
+const TextTicker = styled.div<{ font:string }>`
   width: 16vw;
   height: 3vw;
   margin-left: 1vw;
@@ -82,31 +96,42 @@ const TextTicker = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #1abc9c;
+  color: ${color.green};
+  font-family: ${props => props.font};
 `
 
 const Desc = styled.div`
   font-size: 2vw;
 `
 
-const StyledButton = styled.button`
-  margin-top: 3vw;
-  margin-bottom: -3vw;
+const shakeAnimation = keyframes`
+  0%, 4.5%, 95.5%, 100% { transform: translateX(0); }
+  1%, 3.5% { transform: translateX(2px); }
+  2%, 3% { transform: translateX(-2px); }
+  50%, 54.5%, 59%, 63.5% { transform: translateX(0); }
+  51%, 53.5% { transform: translateX(2px); }
+  52%, 53% { transform: translateX(-2px); }
+`;
+
+const StyledButton = styled.button<{ isHovered: boolean }>`
   width: 10vw;
-  height: 2.5vw;
+  height: 2.7vw;
+  margin-top: 2.7vw;
+  margin-bottom: -2.7vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1vw;
+  font-size: 1.1vw;
   cursor: pointer;
-  color: #1abc9c;
-  white-space: nowrap;
-  background-color: rgb(15, 15, 15);
-  border: 0.15vw solid #1abc9c;
+  color: white;
+  border: 0.2vw solid white;
+  background-color: ${color.black};
   position: relative;
   overflow: hidden;
   transition: color 0.5s ease;
   z-index: 1;
+  border-radius: 5vw;
+  font-family: 'Glitch';
 
   &::before {
     content: '';
@@ -115,7 +140,7 @@ const StyledButton = styled.button`
     top: var(--mouse-y, 50%);
     width: 0;
     height: 0;
-    background-color: #1abc9c;
+    background-color: ${color.green};
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 2s ease, height 2s ease;
@@ -124,6 +149,7 @@ const StyledButton = styled.button`
 
   &:hover {
     color: black;
+    border: 0.2vw solid ${color.green};
     &::before {
       width: 20vw;
       height: 20vw;
@@ -133,5 +159,11 @@ const StyledButton = styled.button`
   span {
     position: relative;
     z-index: 2;
+    display: inline-block;
+  }
+
+  &:hover span {
+    animation: ${shakeAnimation} 4.2s linear infinite;
   }
 `;
+
