@@ -1,10 +1,10 @@
 import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { color } from '../../common/colors';
+import { Link } from 'react-router-dom';
 
 interface ButtonGreenProps {
   children: ReactNode;
-  onClick: () => void;
 }
 
 const HomeComponent = () => {
@@ -20,7 +20,7 @@ const HomeComponent = () => {
     return () => clearInterval(timer)
   }, [tickerList.length])
   
-  const MainButton = useCallback(({ children, onClick }: ButtonGreenProps) => {
+  const MainButton = useCallback(({ children }: ButtonGreenProps) => {
     const handleMouseEnter = (e: React.MouseEvent<HTMLButtonElement>) => {
       const rect = e.currentTarget.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -36,7 +36,6 @@ const HomeComponent = () => {
 
     return (
       <StyledButton 
-        onClick={onClick} 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         isHovered={isHovered}
@@ -53,9 +52,11 @@ const HomeComponent = () => {
         <TextTicker font={fontList[currentIndex]}>{tickerList[currentIndex]}</TextTicker>
       </TitleBox>
       <Desc>"Hi, I'm the greatest KANYE"</Desc>
-      <MainButton onClick={()=>('')}>
-        <span>SEE MORE</span>
-      </MainButton>
+      <Link to={'/about'}>
+        <MainButton>
+          <span>SEE MORE</span>
+        </MainButton>
+      </Link>
     </Container>
   )
 }

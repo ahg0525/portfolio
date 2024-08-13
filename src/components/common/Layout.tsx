@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import useWindowSizeCalc from '../../hooks/useWindowSizeCalc'
 import { MobileCalcProps } from '../../common/types'
+import { color } from '../../common/colors'
+import MacFrame from './MacFrame'
 
 const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { isMobile } = useWindowSizeCalc(800);
@@ -16,6 +18,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <OuterContainer>
       <InnerContainer>
+        <MacFrame/>
         {childrenWithProps}
       </InnerContainer>
     </OuterContainer>
@@ -29,17 +32,17 @@ const OuterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${color.black};
 `
 
 const InnerContainer = styled.div`
-  max-width: 1200px;
-  width: calc(100% - 37vw);
+  width: calc(100% - 4vw);
   min-width: 342px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media (max-width: 1300px) {
-    width: calc(100% - 12vw);
+    /* width: calc(100% - 12vw); */
   }
 `
