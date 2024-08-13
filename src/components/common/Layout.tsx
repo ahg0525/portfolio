@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import useWindowSizeCalc from '../../hooks/useWindowSizeCalc'
 import { MobileCalcProps } from '../../common/types'
