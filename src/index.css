@@ -75,3 +75,9 @@ a {
   src: url("./assets/font/LethalSlime.ttf") format("truetype");  
   font-style: normal;
 }
+
+@font-face {
+  font-family: "DungGeunMo"; 
+  src: url("./assets/font/DungGeunMo.ttf") format("truetype");  
+  font-style: normal;
+}

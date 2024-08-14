@@ -6,49 +6,67 @@ import { Link } from 'react-router-dom'
 const MacFrame = () => {
   return (
     <Container>
-      <TabBar>
-        <Dot className='red' />
-        <Dot className='yellow' />
-        <Dot className='green' />
-        <Nav>
-          <Link to={'/'}>
-            <NavItem>
-              <img src={images.icon.home} alt=''/>
-            </NavItem>
-          </Link>
-          <Link to={'/about'}>
-            <NavItem>
-              <img src={images.icon.user} alt=''/>
-            </NavItem>
-          </Link>
-          <Link to={'/derry'}>
-            <NavItem>
-              <img src={images.icon.boat} alt=''/>
-            </NavItem>
-          </Link>
-        </Nav>
-        <LogoBox>
-          <img src={images.cat} alt=''/>
-        </LogoBox>
-      </TabBar>
-      <FooterBar>
-        <BottomText>Visca el Barça Since 1899</BottomText>
-        <ContactBox>
+      <Gap/>
+      <Frame>
+        <TabBar>
+          <Dot className='red' />
+          <Dot className='yellow' />
+          <Dot className='green' />
+          <Nav>
+            <Link to={'/'}>
+              <NavItem>
+                <img src={images.icon.home} alt=''/>
+              </NavItem>
+            </Link>
+            <Link to={'/about'}>
+              <NavItem>
+                <img src={images.icon.user} alt=''/>
+              </NavItem>
+            </Link>
+            <Link to={'/derry'}>
+              <NavItem>
+                <img src={images.icon.boat} alt=''/>
+              </NavItem>
+            </Link>
+          </Nav>
+          <LogoBox>
+            <img src={images.cat} alt=''/>
+          </LogoBox>
+        </TabBar>
 
-        </ContactBox>
+        <BackGroundCircleLeft/>
+        <BackGroundCircleRight/>
 
-      </FooterBar>
+        <FooterBar>
+          <BottomText>Visca el Barça Since 1899</BottomText>
+          <ContactBox>
+
+          </ContactBox>
+        </FooterBar>
+      </Frame>
+      <Gap/>
     </Container>
   )
 }
 
 export default MacFrame
 
+
 const Container = styled.div`
-  top: 0.5vw;
   width: calc(100% - 1vw);
   height: calc(100% - 1vw);
   position: fixed;
+  `
+
+const Gap = styled.div`
+  width: 100%;
+  height: 0.5vw;
+  background-color: ${color.black};
+`
+
+const Frame = styled.div`
+  width: calc(100%);
+  height: calc(100%);
   border: 1px solid ${color.macGrey};
   border-radius: 0.5vw;
   display: flex;
@@ -115,6 +133,25 @@ const LogoBox = styled.div`
     width: 100%;
     height: 100%;
   }
+`
+
+const BackGroundCirlce = styled.div`
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  background-color: ${color.green};
+  position: absolute;
+  filter: blur(150px);
+`
+
+const BackGroundCircleLeft = styled(BackGroundCirlce)`
+  top: 50vh;
+  left: 10vw;
+`
+
+const BackGroundCircleRight = styled(BackGroundCirlce)`
+  top: 15vh;
+  right: 5vw;
 `
 
 const FooterBar = styled.div`

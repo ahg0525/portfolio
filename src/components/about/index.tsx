@@ -37,7 +37,6 @@ const Container = styled.div`
   width: 100%;
   color: white;
   height: 200vh;
-  
 `
 
 const Intro = styled.div`

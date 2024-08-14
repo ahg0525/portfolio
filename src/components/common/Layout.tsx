@@ -40,7 +40,6 @@ const InnerContainer = styled.div`
   min-width: 342px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   @media (max-width: 1300px) {
     /* width: calc(100% - 12vw); */

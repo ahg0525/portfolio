@@ -51,7 +51,7 @@ const HomeComponent = () => {
         <span>I Create with</span>
         <TextTicker font={fontList[currentIndex]}>{tickerList[currentIndex]}</TextTicker>
       </TitleBox>
-      <Desc>"Hi, I'm the greatest KANYE"</Desc>
+      <Desc>"Hi I'm Jungwon, a Frontend Developer"</Desc>
       <Link to={'/about'}>
         <MainButton>
           <span>SEE MORE</span>
