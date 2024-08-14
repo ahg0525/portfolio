@@ -3,7 +3,15 @@ import styled from 'styled-components';
 import { color } from '../../common/colors';
 
 const Intro2 = () => {
-  const ABOUT_STRING = `하나의 유령이 유럽을 배회하고 있다. 공산주의라는 유령이. 옛 유럽의 모든 세력들이, 교황과 차르, 메테르니히와 기조, 프랑스의 급진파와 독일의 비밀경찰이, 이 유령을 사냥하려고 신성 동맹을 맺었다. 잃을것은 사슬뿐이오 얻을것은 전세계다 만국의 노동자여 각성하라`
+  const ABOUT_STRING_1 = `하나의 유령이 유럽을 배회하고 있다. 공산주의라는 유령이. 옛 유럽의 모든 세력들이, 교황과 차르, 메테르니히와 기조, 프랑스의 급진파와 독일의 비밀경찰이, 이 유령을 사냥하려고 신성 동맹을 맺었다. 잃을것은 사슬뿐이오 얻을것은 전세계다 만국의 노동자여 각성하라`
+  const ABOUT_STRING = `
+  새로운 기술을 쓰는걸 좋아합니다. 
+  클라우드에 대한 관심으로 클라우드 회사를 첫 직장으로 재직하게 됐고 자유롭게 서비스를 구상할 수 있어 스포츠회사에 재직하게 됐습니다. 
+  지금까지는 디자인을 잘 구현하고 잘 작동하는데 집중했다면, 더 높은성능과 효율적인 코드, 사용자에게 편안한 환경을 만드는데 집중하고자 합니다. 
+  디자인에도 관심이 많습니다. 사용자에게 편한 환경은 좋은 디자인이 만들기 때문입니다. 
+  디자이너와 끊임없이 소통하고 더 나은 서비스를 만들기 위해 밥먹으면서도 상의합니다. 
+  저와의 소통은 24시간 열려있습니다. 
+  메일을 통해 이 사이트가 얼마나 멋있는지 끊임없이 칭찬해주세요.`
 
   const [positions, setPositions] = useState([
     { x: 1100, y: 70 },
@@ -30,9 +38,8 @@ const Intro2 = () => {
       let newX = clientX - dragStart.x;
       let newY = clientY - dragStart.y;
 
-      // 여기서 각 박스의 크기에 따라 최대 위치를 조정해야 합니다
-      const maxX = containerRect.width - 150; // 가장 큰 박스의 너비
-      const maxY = containerRect.height - 150; // 가장 큰 박스의 높이
+      const maxX = containerRect.width - 150;
+      const maxY = containerRect.height - 150;
 
       newX = Math.max(0, Math.min(newX, maxX));
       newY = Math.max(0, Math.min(newY, maxY));
@@ -77,19 +84,25 @@ const Intro2 = () => {
         style={{ transform: `translate(${positions[0].x}px, ${positions[0].y}px)` }}
         onMouseDown={(e) => handleMouseDown(e, 0)}
       >
-        {ABOUT_STRING}
+        {ABOUT_STRING_1}
       </DraggableBox1>
       <DraggableBox2
         style={{ transform: `translate(${positions[1].x}px, ${positions[1].y}px)` }}
         onMouseDown={(e) => handleMouseDown(e, 1)}
       >
-        {ABOUT_STRING}
+        {ABOUT_STRING_1}
       </DraggableBox2>
       <DraggableBox3
         style={{ transform: `translate(${positions[2].x}px, ${positions[2].y}px)` }}
         onMouseDown={(e) => handleMouseDown(e, 2)}
       >
-        <span className='grey'>1. </span>하나의 유령이 유럽을 배회하고 있다. 공산주의라는 유령이. <br/><span className='grey'>2. </span>옛 유럽의 모든 세력들이, 교황과 차르, 메테르니히와 기조, 프랑스의 급진파와 독일의 비밀경찰이, 이 유령을 사냥하려고 신성 동맹을 맺었다. <br/><span className='grey'>3. </span>잃을것은 <span className='red'>사슬</span>뿐이오 얻을것은 <span className='yellow'>전세계</span>다 만국의 노동자여 각성하라
+        <span className='grey'>1. </span>안녕하세요. 웹개발자 <span className='yellow'>박정원</span>입니다. <br/><br/>
+        <span className='grey'>2. </span>전 새로운 기술을 쓰는걸 좋아합니다. <br/>
+        클라우드에 대한 관심으로 클라우드 회사를 첫 직장으로 재직하게 됐고 자유롭게 서비스를 구상할 수 있어 스포츠회사에 재직하게 됐습니다. <br/>지금까지는 디자인을 잘 구현하고 잘 작동하는데 집중했다면, 더 <span className='yellow'>높은성능</span>과 <span className='yellow'>효율적인 코드</span>, 사용자에게 <span className='yellow'>편안한 환경</span>을 만드는데 집중하고자 합니다.<br/> <br/>
+        <span className='grey'>3. </span>디자인에도 관심이 많습니다. <br/>사용자에게 편한 환경은 좋은 디자인이 만들기 때문입니다. <br/>
+        디자이너와 끊임없이 소통하고 더 나은 서비스를 만들기 위해 <span className='red'>밥먹으면서도 상의합니다.</span> <br/><br/>
+        <span className='grey'>4. </span>저와의 소통은 24시간 열려있습니다. <br/>
+        메일을 통해 이 사이트가 얼마나 멋있는지 <span className='red'>끊임없이 칭찬해주세요.</span>
       </DraggableBox3>
     </Container>
   )
@@ -143,6 +156,6 @@ const DraggableBox2 = styled(DraggableBoxBase)`
 `;
 
 const DraggableBox3 = styled(DraggableBoxBase)`
-  width: 20vw;
-  height: 20vw; 
+  width: 23vw;
+  height: max-content;
 `;
