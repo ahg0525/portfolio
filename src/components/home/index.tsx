@@ -124,8 +124,8 @@ const StyledButton = styled.button<{ isHovered: boolean }>`
   align-items: center;
   font-size: 1.1vw;
   cursor: pointer;
-  color: white;
-  border: 0.2vw solid white;
+  color: ${color.green};;
+  border: 0.2vw solid ${color.green};;
   background-color: ${color.black};
   position: relative;
   overflow: hidden;
