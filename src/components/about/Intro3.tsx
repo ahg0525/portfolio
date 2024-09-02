@@ -38,7 +38,7 @@ export default Intro3
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 60vw;
   position: relative;
   overflow: hidden;
 `;
