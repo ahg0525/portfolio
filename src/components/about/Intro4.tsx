@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Intro4 = () => {
   return (
     <Container>
-      <Title>Contact Form <br/>is Developing ...</Title>
+      <Title>Let's Create Together<br/> Soon . . .</Title>
     </Container>
   )
 }
@@ -15,14 +15,14 @@ const Container = styled.div`
   height: 100vh;
   position: relative;
   overflow: hidden;
-
   display: flex;
   justify-content: center;
   align-items: center;
-`;
+`
 
 const Title = styled.div`
   font-family: 'BordaBold';
   font-size: 3vw;
   color: white;
+  text-align: center;
 `

@@ -15,6 +15,7 @@ const Intro2 = () => {
   ]);
   const [isDragging, setIsDragging] = useState<number | null>(null);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [zIndexes, setZIndexes] = useState([1, 2, 3, 4, 5]);
 
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -30,6 +31,10 @@ const Intro2 = () => {
     
     setIsDragging(index);
     setDragOffset({ x: offsetX, y: offsetY });
+    setZIndexes(prevZIndexes => {
+      const maxZIndex = Math.max(...prevZIndexes);
+      return prevZIndexes.map((z, i) => (i === index ? maxZIndex + 1 : z));
+    });
   };
   
   const updatePosition = useCallback((clientX: number, clientY: number) => {
@@ -82,7 +87,10 @@ const Intro2 = () => {
   return (
     <Container ref={containerRef}>
       <DraggableBox1
-        style={{ transform: `translate(${positions[0].x}vw, ${positions[0].y}vw)` }}
+        style={{ 
+          transform: `translate(${positions[0].x}vw, ${positions[0].y}vw)`,
+          zIndex: zIndexes[0]
+        }}
         onMouseDown={(e) => handleMouseDown(e, 0)}
       >
         <BoxTop>skills</BoxTop>
@@ -92,14 +100,20 @@ const Intro2 = () => {
         <span className='grey'>4. </span><span className='purple'>AntD, ChakraUI, Bootstrap, Styled-Components, GSAP</span><br/>
       </DraggableBox1>
       <DraggableBox2
-        style={{ transform: `translate(${positions[1].x}vw, ${positions[1].y}vw)` }}
+        style={{ 
+          transform: `translate(${positions[1].x}vw, ${positions[1].y}vw)`,
+          zIndex: zIndexes[1]
+        }}
         onMouseDown={(e) => handleMouseDown(e, 1)}
       >
         <BoxTop>ma face</BoxTop>
         <img src={currentImage} alt='' onClick={handleImageClick} />
       </DraggableBox2>
       <DraggableBox3
-        style={{ transform: `translate(${positions[2].x}vw, ${positions[2].y}vw)` }}
+        style={{ 
+          transform: `translate(${positions[2].x}vw, ${positions[2].y}vw)`,
+          zIndex: zIndexes[2]
+        }}
         onMouseDown={(e) => handleMouseDown(e, 2)}
       >
         <BoxTop>and more</BoxTop>
@@ -108,7 +122,10 @@ const Intro2 = () => {
         <span className='grey'>3. </span><span className='link' onClick={()=>{openUrl('mailto:ahg0525@gmail.com')}}>email</span><br/>
       </DraggableBox3>
       <DraggableBox1
-        style={{ transform: `translate(${positions[3].x}vw, ${positions[3].y}vw)` }}
+        style={{ 
+          transform: `translate(${positions[3].x}vw, ${positions[3].y}vw)`,
+          zIndex: zIndexes[3]
+        }}
         onMouseDown={(e) => handleMouseDown(e, 3)}
       >
         <BoxTop>education & career</BoxTop>
@@ -117,7 +134,10 @@ const Intro2 = () => {
         <span className='grey'>2023. </span><span className='link'>위플레이라이트</span><br/>
       </DraggableBox1>
       <DraggableBox4
-        style={{ transform: `translate(${positions[4].x}vw, ${positions[4].y}vw)` }}
+        style={{ 
+          transform: `translate(${positions[4].x}vw, ${positions[4].y}vw)`,
+          zIndex: zIndexes[4]
+        }}
         onMouseDown={(e) => handleMouseDown(e, 4)}
       >
         <BoxTop>about me</BoxTop>

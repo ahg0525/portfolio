@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { color } from '../../common/colors'
 import { images } from '../../common/images'
 import { Link } from 'react-router-dom'
+import { openUrl } from '../../common/util'
 
 const MacFrame = () => {
   return (
@@ -9,11 +10,11 @@ const MacFrame = () => {
       <Gap/>
       <Frame>
         <TabBar>
-          <Dot className='red' />
+          <Link to={'/'}><Dot className='red' /></Link>
           <Dot className='yellow' />
           <Dot className='green' />
           <Nav>
-            <Link to={'/'}>
+            {/* <Link to={'/'}>
               <NavItem>
                 <img src={images.icon.home} alt=''/>
               </NavItem>
@@ -27,21 +28,22 @@ const MacFrame = () => {
               <NavItem>
                 <img src={images.icon.boat} alt=''/>
               </NavItem>
-            </Link>
+            </Link> */}
+            <span>La meva introducció</span>
           </Nav>
-          <LogoBox>
+          {/* <LogoBox>
             <img src={images.cat} alt=''/>
-          </LogoBox>
+          </LogoBox> */}
         </TabBar>
 
         <BackGroundCircleLeft/>
         <BackGroundCircleRight/>
 
         <FooterBar>
-          <BottomText>Visca el Barça Since 1899</BottomText>
-          <ContactBox>
-
-          </ContactBox>
+          <BottomText>Visca el Barça 1899</BottomText>
+          {/* <ContactBox>
+            
+          </ContactBox> */}
         </FooterBar>
       </Frame>
       <Gap/>
@@ -108,6 +110,10 @@ const Nav = styled.div`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  span {
+    color: ${color.grey};
+    font-size: 0.8vw;
+  }
 `
 
 const NavItem = styled.div`
@@ -175,5 +181,5 @@ const BottomText = styled.div`
 `
 
 const ContactBox = styled.div`
-  
+  color: white;
 `

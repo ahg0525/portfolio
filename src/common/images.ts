@@ -4,6 +4,8 @@ import userIcon from '../assets/img/userIcon.png'
 import cat from '../assets/img/cat.png'
 import ozy from '../assets/img/ozy.png'
 import ozy2 from '../assets/img/ozy2.png'
+import kfaWeb from '../assets/img/kfaWeb.png'
+import wedidWeb from '../assets/img/wedidWeb.png'
 
 export const images = {
   icon : {
@@ -14,4 +16,7 @@ export const images = {
   cat : cat,
   ozy : ozy,
   ozy2 : ozy2,
+  kfaWeb : kfaWeb,
+  wedidWeb : wedidWeb,
+
 }
