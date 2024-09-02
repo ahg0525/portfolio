@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 import { color } from '../../common/colors'
-import { images } from '../../common/images'
 import { Link } from 'react-router-dom'
-import { openUrl } from '../../common/util'
 
 const MacFrame = () => {
   return (
@@ -116,30 +114,30 @@ const Nav = styled.div`
   }
 `
 
-const NavItem = styled.div`
-  width: 0.8vw;
-  height: 0.8vw;
-  display: flex;
-  cursor: pointer;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-  :hover {
-    filter: invert(65%) sepia(26%) saturate(5681%) hue-rotate(125deg) brightness(96%) contrast(80%);
-  }
-`
+// const NavItem = styled.div`
+//   width: 0.8vw;
+//   height: 0.8vw;
+//   display: flex;
+//   cursor: pointer;
+//   img {
+//     width: 100%;
+//     height: 100%;
+//   }
+//   :hover {
+//     filter: invert(65%) sepia(26%) saturate(5681%) hue-rotate(125deg) brightness(96%) contrast(80%);
+//   }
+// `
 
-const LogoBox = styled.div`
-  width: 1vw;
-  height: 1vw;
-  margin-left: auto;
-  margin-right: 1vw;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-`
+// const LogoBox = styled.div`
+//   width: 1vw;
+//   height: 1vw;
+//   margin-left: auto;
+//   margin-right: 1vw;
+//   img {
+//     width: 100%;
+//     height: 100%;
+//   }
+// `
 
 const BackGroundCirlce = styled.div`
   width: 15vw;
@@ -180,6 +178,6 @@ const BottomText = styled.div`
   font-size: 0.8vw;
 `
 
-const ContactBox = styled.div`
-  color: white;
-`
+// const ContactBox = styled.div`
+//   color: white;
+// `
