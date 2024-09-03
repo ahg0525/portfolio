@@ -5,7 +5,7 @@ import { openUrl } from '../../common/util';
 import { images } from '../../common/images';
 
 const Intro2 = () => {
-  const [currentImage, setCurrentImage] = useState(images.ozy);
+  const [currentImage, setCurrentImage] = useState(images.profile1);
   const [positions, setPositions] = useState([
     { x: 18, y: 5 }, 
     { x: 55, y: 10 },
@@ -21,7 +21,7 @@ const Intro2 = () => {
   const animationRef = useRef<number | null>(null);
 
   const handleImageClick = () => {
-    setCurrentImage(currentImage === images.ozy ? images.ozy2 : images.ozy);
+    setCurrentImage(currentImage === images.profile1 ? images.profile2 : images.profile1);
   };
 
   const handleMouseDown = (e: React.MouseEvent, index: number) => {
@@ -106,7 +106,7 @@ const Intro2 = () => {
         }}
         onMouseDown={(e) => handleMouseDown(e, 1)}
       >
-        <BoxTop>ma face</BoxTop>
+        <BoxTop>fotos</BoxTop>
         <img src={currentImage} alt='' onClick={handleImageClick} />
       </DraggableBox2>
       <DraggableBox3
@@ -212,7 +212,7 @@ const DraggableBox1 = styled(DraggableBoxBase)`
 
 const DraggableBox2 = styled(DraggableBoxBase)`
   width: 15vw;
-  height: 21vw;
+  height: 20vw;
   padding: 0;
   :first-child {
     margin-left: 0;
