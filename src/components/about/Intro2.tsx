@@ -119,7 +119,7 @@ const Intro2 = () => {
         <BoxTop>and more</BoxTop>
         <span className='grey'>1. </span><span className='link' onClick={()=>{openUrl('https://pond-twill-4a1.notion.site/Hi-I-m-Jungwon-b696a386412c48109787e8517981901f')}}>notion</span><br/>
         <span className='grey'>2. </span><span className='link' onClick={()=>{openUrl('https://github.com/ahg0525')}}>github</span><br/>
-        <span className='grey'>3. </span><span className='link' onClick={()=>{openUrl('mailto:ahg0525@gmail.com')}}>email</span><br/>
+        {/* <span className='grey'>3. </span><span className='link' onClick={()=>{openUrl('mailto:ahg0525@gmail.com')}}>email</span><br/> */}
       </DraggableBox3>
       <DraggableBox1
         style={{ 
@@ -146,7 +146,7 @@ const Intro2 = () => {
         <span className='cyan'>클라우드</span>에 대한 관심으로 클라우드 회사를 첫 직장으로 재직하게 됐고 자유롭게 서비스를 구상할 수 있어 스포츠회사에 재직하게 됐습니다. <br/>지금까지는 디자인을 잘 구현하고 잘 작동하는데 집중했다면, 더 <span className='blue'>높은성능</span>과 <span className='indigo'>효율적인 코드</span>, 사용자에게 <span className='purple'>편안한 환경</span>을 만드는데 집중하고자 합니다.<br/> <br/>
         <span className='grey'>3. </span><span className='red'>디자인</span>에도 관심이 많습니다. <br/>사용자에게 편한 환경은 좋은 디자인이 만들기 때문입니다. <br/>
         디자이너와 끊임없이 소통하고 더 나은 서비스를 만들기 위해 <span className=''>밥먹으면서도 상의합니다.</span> <br/><br/>
-        <span className='grey'>4. </span><span className='yellow'>mail</span><span className='green'> me</span> if u <span className='red'>like</span> this <span className='blue'>page!</span> <span onClick={()=>{openUrl('mailto:ahg0525@gmail.com')}} className='mail'>✉️</span>
+        {/* <span className='grey'>4. </span><span className='yellow'>mail</span><span className='green'> me</span> if u <span className='red'>like</span> this <span className='blue'>page!</span> <span onClick={()=>{openUrl('mailto:ahg0525@gmail.com')}} className='mail'>✉️</span> */}
       </DraggableBox4>
     </Container>
   )
