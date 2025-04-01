@@ -8,24 +8,24 @@ const Intro3 = () => {
     <Container>
       <Title>MAIN PROJECTS </Title>
       <BoxWrapper>
-        <Box onClick={()=>{openUrl('https://www.kfachallenge.org/')}}>
+        <Box onClick={()=>{openUrl('https://www.kleaguefantasy.com/')}}>
           <div className='top'>
             <span className='order'>01</span>
+            <span className='title'>K League Fantasy</span>
+          </div>
+          <div className='bot'>Game where you build a fantasy team with K League players</div>
+          <ImgBox className='img-box'>
+            <img src={images.fantasy} alt=''/>
+          </ImgBox>
+        </Box>
+        <Box onClick={()=>{openUrl('https://www.kfachallenge.org/')}}>
+          <div className='top'>
+            <span className='order'>02</span>
             <span className='title'>KFA Challenge</span>
           </div>
           <div className='bot'>Blockchain-based youth authentication system</div>
           <ImgBox className='img-box'>
             <img src={images.kfaWeb} alt=''/>
-          </ImgBox>
-        </Box>
-        <Box onClick={()=>{openUrl('https://wedid.projectwith.org/')}}>
-          <div className='top'>
-            <span className='order'>02</span>
-            <span className='title'>WEDID</span>
-          </div>
-          <div className='bot'>Sports data management service</div>
-          <ImgBox className='img-box'>
-            <img src={images.wedidWeb} alt=''/>
           </ImgBox>
         </Box>
       </BoxWrapper>

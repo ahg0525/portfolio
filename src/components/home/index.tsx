@@ -2,6 +2,7 @@ import React, { ReactNode, useCallback, useEffect, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { color } from '../../common/colors';
 import { Link } from 'react-router-dom';
+import {openUrl} from "../../common/util.ts";
 
 interface ButtonGreenProps {
   children: ReactNode;
@@ -12,7 +13,8 @@ const HomeComponent = () => {
   const fontList = ['comeWithUs','lethalSlime','doubleFeature','Corrupted','comeWithUs','Glitch','doubleFeature']
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false);
-  
+  const isMobile = window.innerWidth <= 800;
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % tickerList.length)
@@ -38,18 +40,28 @@ const HomeComponent = () => {
       <StyledButton 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        isHovered={isHovered}
+        $isHovered={isHovered}
       >
         <span>{children}</span>
       </StyledButton>
     );
   }, []);
 
+  if(isMobile) return (
+    <MobileContainer>
+      <div>
+        <span>Mobile screens are not prepared ..</span><br/>
+        <span>Please use the PC .. 😿</span><br/>
+      </div>
+      <button onClick={()=>{openUrl('https://pond-twill-4a1.notion.site/Hi-I-m-Jungwon-b696a386412c48109787e8517981901f')}}>RESUME</button>
+    </MobileContainer>
+  )
+
   return (
     <Container>
       <TitleBox>
         <span>I Create with</span>
-        <TextTicker font={fontList[currentIndex]}>{tickerList[currentIndex]}</TextTicker>
+        <TextTicker $font={fontList[currentIndex]}>{tickerList[currentIndex]}</TextTicker>
       </TitleBox>
       <Desc>"Hi I'm Jungwon, a Frontend Developer"</Desc>
       <Link to={'/about'}>
@@ -62,6 +74,32 @@ const HomeComponent = () => {
 }
 
 export default HomeComponent
+
+const MobileContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: ${color.black};
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Borda';
+  font-size: 18px;
+  
+  button {
+    cursor: pointer;
+    margin-top: 35px;
+    width: 130px;
+    height: 40px;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    background: #ffffff;
+    font-family: 'Borda';
+    font-size: 16px;
+  }
+`
 
 const Container = styled.div`
   width: 100vw;
@@ -88,7 +126,7 @@ const TitleBox = styled.div`
   }
 `
 
-const TextTicker = styled.div<{ font:string }>`
+const TextTicker = styled.div<{ $font:string }>`
   width: 16vw;
   height: 3vw;
   margin-left: 1vw;
@@ -98,7 +136,7 @@ const TextTicker = styled.div<{ font:string }>`
   justify-content: center;
   align-items: center;
   color: ${color.green};
-  font-family: ${props => props.font};
+  font-family: ${props => props.$font};
 `
 
 const Desc = styled.div`
@@ -114,7 +152,7 @@ const shakeAnimation = keyframes`
   52%, 53% { transform: translateX(-2px); }
 `;
 
-const StyledButton = styled.button<{ isHovered: boolean }>`
+const StyledButton = styled.button<{ $isHovered: boolean }>`
   width: 10vw;
   height: 2.7vw;
   margin-top: 2.7vw;
